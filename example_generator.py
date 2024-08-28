@@ -1,6 +1,6 @@
 # a case of drs-text generation
 from tokenization_mlm import MLMTokenizer
-from transformers import MBartForConditionalGeneration #type: ignore
+from transformers import MBartForConditionalGeneration  # type: ignore
 
 
 class ExampleGenerator:
@@ -12,7 +12,7 @@ class ExampleGenerator:
         self.parse_tokenizer = MLMTokenizer.from_pretrained(
             "laihuiyuan/DRS-LMM", src_lang="en_XX"
         )
-        self.model = MBartForConditionalGeneration.from_pretrained("laihuiyuan/DRS-LMM") # type: ignore
+        self.model = MBartForConditionalGeneration.from_pretrained("laihuiyuan/DRS-LMM")  # type: ignore
 
     def drs2en(self, gold_drs: str) -> str:
         inp_ids = self.gen_tokenizer.encode(gold_drs, return_tensors="pt")
